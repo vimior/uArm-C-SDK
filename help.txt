@@ -1,0 +1,18 @@
+C:
+    build lib:
+        gcc uarm.c serial/serial.c -fPIC -shared -lpthread -o libuarm.so
+    build main link code:
+        gcc main.c uarm.c serial/serial.c -lpthread
+    build main link lib:
+        gcc main.c -L. -luarm
+
+C++:
+    build lib:
+        g++ uarm.cpp -fPIC -shared -lpthread -o libuarm.so
+    build main link code:
+        g++ main.cpp uarm.cpp -lpthread
+    build main link lib:
+        g++ main.cpp -L. -luarm
+
+set library path:
+    export LD_LIBRARY_PATH="./":$LD_LIBRARY_APTH
